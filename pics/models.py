@@ -35,6 +35,11 @@ class Image(models.Model):
     category = models.ForeignKey('Category', on_delete=models.DO_NOTHING,)
     location = models.ForeignKey('Location', on_delete=models.DO_NOTHING,)
 
+    @classmethod
+    def search_by_category(cls, search_term):
+        images = cls.objects.filter(category__name__icontains=search_term)
+        return images
+
     def __str__(self):
         return self.name
 
