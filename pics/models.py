@@ -25,6 +25,10 @@ class Location(models.Model):
     def __str__(self):
         return self.name
 
+    @classmethod
+    def update_location(cls, id, value):
+        cls.objects.filter(id=id).update(image=value)
+        
     def save_location(self):
         self.save()
 
@@ -46,8 +50,12 @@ class Image(models.Model):
         return image_location
 
     @classmethod
+    def update_image(cls, id, value):
+        cls.objects.filter(id=id).update(image=value)
+
+    @classmethod
     def get_image_by_id(cls, id):
-        image = cls.Image.filter(id=id)
+        image = cls.Image.filter(id=id).all()
         return image
 
     @classmethod
