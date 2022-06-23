@@ -7,4 +7,4 @@ def index(request):
     # return render(request, 'pics/index.html')
     images = Image.objects.all()
     print (images)
-    return render(request, 'pics/index.html', {'images': images})
+    return render(request, 'pics/index.html', {'images': images[::-1]})
