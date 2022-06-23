@@ -8,6 +8,7 @@ app_name = 'pics'
 urlpatterns = [
     re_path(r'^$', views.index, name='index'),
     re_path(r'^search/', views.search_results, name='search'),
+    re_path(r'^location/', views.image_location, name='location'),
 ]
 
 if settings.DEBUG:
